@@ -155,6 +155,7 @@ export default function Wardrobe() {
           size="md"
           onClick={() => setAddModalOpen(true)}
           icon={<Plus size={16} />}
+          className="w-full sm:w-auto min-h-[44px] justify-center"
         >
           Add Clothing Item
         </Button>
@@ -174,13 +175,13 @@ export default function Wardrobe() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search wardrobe by name, fabric, style, or notes..."
-              className="w-full pl-11 pr-4 py-2.5 bg-[#FFFDF5] border border-[#EAE7DD] rounded-full text-sm text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
+              className="w-full pl-11 pr-4 py-2.5 min-h-[44px] bg-[#FFFDF5] border border-[#EAE7DD] rounded-full text-base sm:text-sm text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
             />
           </div>
         </div>
 
         {/* Category Filter Chips */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-1">
+        <div className="-mx-1 px-1 sm:mx-0 sm:px-0 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-1 touch-pan-x">
           <span className="text-xs font-bold text-[#737373] uppercase tracking-wider shrink-0 mr-1">
             Categories:
           </span>
@@ -188,7 +189,7 @@ export default function Wardrobe() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`text-xs px-3.5 py-1.5 rounded-full font-semibold transition-colors shrink-0 ${
+              className={`text-xs px-3.5 py-2 sm:py-1.5 min-h-[36px] sm:min-h-0 rounded-full font-semibold transition-colors shrink-0 ${
                 selectedCategory === cat
                   ? 'bg-[#252525] text-[#FFD84D]'
                   : 'bg-white border border-[#EAE7DD] text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6]'
@@ -309,11 +310,11 @@ export default function Wardrobe() {
       {/* Modal: Add Clothing Item */}
       {addModalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 overflow-y-auto"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto"
           onClick={() => setAddModalOpen(false)}
         >
           <div
-            className="bg-white rounded-3xl border border-[#EAE7DD] shadow-2xl max-w-lg w-full p-6 sm:p-7 relative my-8"
+            className="bg-white rounded-3xl border border-[#EAE7DD] shadow-2xl max-w-lg w-full p-5 sm:p-7 relative my-auto max-h-[85vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -486,11 +487,11 @@ export default function Wardrobe() {
       {/* Modal: "What can I wear with this?" Recommendation Engine Results */}
       {inspectingItem && outfitLook && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 overflow-y-auto"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto"
           onClick={() => setInspectingItem(null)}
         >
           <div
-            className="bg-white rounded-3xl border border-[#EAE7DD] shadow-2xl max-w-2xl w-full p-6 sm:p-8 relative my-8 space-y-6"
+            className="bg-white rounded-3xl border border-[#EAE7DD] shadow-2xl max-w-2xl w-full p-5 sm:p-8 relative my-auto max-h-[85vh] overflow-y-auto space-y-6"
             onClick={(e) => e.stopPropagation()}
           >
             <button

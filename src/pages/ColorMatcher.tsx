@@ -146,7 +146,7 @@ export default function ColorMatcher() {
                 id="matcher-category-select"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#EAE7DD] rounded-xl text-xs font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
+                className="w-full px-3.5 py-2.5 min-h-[44px] bg-white border border-[#EAE7DD] rounded-xl text-sm sm:text-xs font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
               >
                 {CLOTHING_CATEGORIES.map((cat) => (
                   <option key={cat} value={cat}>
@@ -163,7 +163,7 @@ export default function ColorMatcher() {
                 id="matcher-occasion-select"
                 value={occasion}
                 onChange={(e) => setOccasion(e.target.value as Occasion)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#EAE7DD] rounded-xl text-xs font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
+                className="w-full px-3.5 py-2.5 min-h-[44px] bg-white border border-[#EAE7DD] rounded-xl text-sm sm:text-xs font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
               >
                 {OCCASIONS.map((occ) => (
                   <option key={occ.value} value={occ.value}>
@@ -182,7 +182,7 @@ export default function ColorMatcher() {
                 id="matcher-undertone-select"
                 value={undertone}
                 onChange={(e) => setUndertone(e.target.value as UndertoneOption)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#EAE7DD] rounded-xl text-xs font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
+                className="w-full px-3.5 py-2.5 min-h-[44px] bg-white border border-[#EAE7DD] rounded-xl text-sm sm:text-xs font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
               >
                 {UNDERTONES.map((u) => (
                   <option key={u.value} value={u.value}>
@@ -201,7 +201,7 @@ export default function ColorMatcher() {
                 id="matcher-aesthetic-select"
                 value={preferredAesthetic}
                 onChange={(e) => setPreferredAesthetic(e.target.value as Aesthetic)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#EAE7DD] rounded-xl text-xs font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
+                className="w-full px-3.5 py-2.5 min-h-[44px] bg-white border border-[#EAE7DD] rounded-xl text-sm sm:text-xs font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
               >
                 <option value="soft">Soft & Natural</option>
                 <option value="elegant">Elegant & Balanced</option>
@@ -213,14 +213,14 @@ export default function ColorMatcher() {
       </Card>
 
       {/* Prominent Active Dress Color Banner & Stylist Analysis */}
-      <div className="bg-[#FFFDF5] border border-[#EAE7DD] rounded-3xl p-6 sm:p-7 shadow-xs">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+      <div className="bg-[#FFFDF5] border border-[#EAE7DD] rounded-3xl p-5 sm:p-7 shadow-xs">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center">
           <div className="md:col-span-4 flex items-center gap-4">
             <div className="flex -space-x-4 shrink-0">
               {dressHexes.map((hex, i) => (
                 <div
                   key={hex}
-                  className="w-16 h-16 rounded-2xl border-2 border-white shadow-md"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-white shadow-md"
                   style={{ backgroundColor: hex, zIndex: 10 - i }}
                 />
               ))}
@@ -229,7 +229,7 @@ export default function ColorMatcher() {
               <span className="text-[10px] uppercase font-bold tracking-widest text-[#737373] block">
                 Selected Dress Profile
               </span>
-              <h3 className="font-display text-xl font-bold text-[#252525]">
+              <h3 className="font-display text-lg sm:text-xl font-bold text-[#252525]">
                 {presetName || 'Custom Color'}
               </h3>
               <p className="text-xs font-mono text-[#737373] mt-0.5">
@@ -254,10 +254,10 @@ export default function ColorMatcher() {
       </div>
 
       {/* Results Filter Navigation Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none border-b border-[#EAE7DD]">
+      <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-[#EAE7DD] touch-pan-x">
         <button
           onClick={() => setActiveTab('all')}
-          className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 ${
+          className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 min-h-[40px] flex items-center ${
             activeTab === 'all'
               ? 'bg-[#FFD84D] text-[#252525] shadow-xs'
               : 'text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6]'
@@ -267,17 +267,17 @@ export default function ColorMatcher() {
         </button>
         <button
           onClick={() => setActiveTab('combinations')}
-          className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 ${
+          className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 min-h-[40px] flex items-center ${
             activeTab === 'combinations'
               ? 'bg-[#FFD84D] text-[#252525] shadow-xs'
               : 'text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6]'
           }`}
         >
-          Complete Makeup Combinations (3)
+          Complete Makeup Looks (3)
         </button>
         <button
           onClick={() => setActiveTab('makeup')}
-          className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 ${
+          className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 min-h-[40px] flex items-center ${
             activeTab === 'makeup'
               ? 'bg-[#FFD84D] text-[#252525] shadow-xs'
               : 'text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6]'
@@ -287,7 +287,7 @@ export default function ColorMatcher() {
         </button>
         <button
           onClick={() => setActiveTab('accessories')}
-          className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 ${
+          className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 min-h-[40px] flex items-center ${
             activeTab === 'accessories'
               ? 'bg-[#FFD84D] text-[#252525] shadow-xs'
               : 'text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6]'

@@ -115,45 +115,84 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Backdrop */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white border-t border-[#EAE7DD] px-4 py-4 space-y-1 shadow-lg animate-in slide-in-from-top-4 duration-200">
-          {NAV_ITEMS.map((item) => {
-            const Icon = item.icon;
-            const isLookbook = item.to === '/lookbook';
-            const isWardrobe = item.to === '/wardrobe';
+        <div className="xl:hidden fixed inset-0 z-50 flex flex-col justify-start">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
 
-            return (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.to === '/'}
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold transition-colors ${
-                    isActive
-                      ? 'bg-[#FFD84D] text-[#252525]'
-                      : 'text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6]'
-                  }`
-                }
-              >
-                <div className="flex items-center gap-3">
-                  <Icon size={18} />
-                  <span>{item.label}</span>
+          {/* Drawer Content */}
+          <div className="relative z-10 bg-white border-b border-[#EAE7DD] px-4 py-5 space-y-2 shadow-2xl max-h-[85vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-[#EAE7DD]">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-[#FFD84D] flex items-center justify-center">
+                  <Sparkles size={16} className="text-[#252525]" />
                 </div>
-                {isLookbook && savedPalettes.length > 0 && (
-                  <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-[#252525] text-[#FFD84D]">
-                    {savedPalettes.length}
-                  </span>
-                )}
-                {isWardrobe && wardrobeItems.length > 0 && (
-                  <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-[#FFF4BF] text-[#252525]">
-                    {wardrobeItems.length}
-                  </span>
-                )}
-              </NavLink>
-            );
-          })}
+                <span className="font-display text-lg font-bold text-[#252525]">All Stylist Tools</span>
+              </div>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 text-[#737373] hover:text-[#252525] rounded-full hover:bg-[#FFF9E6]"
+                aria-label="Close menu"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1">
+              {NAV_ITEMS.map((item) => {
+                const Icon = item.icon;
+                const isLookbook = item.to === '/lookbook';
+                const isWardrobe = item.to === '/wardrobe';
+
+                return (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    end={item.to === '/'}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold transition-colors min-h-[48px] ${
+                        isActive
+                          ? 'bg-[#FFD84D] text-[#252525]'
+                          : 'text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6] active:bg-[#FFF4BF]'
+                      }`
+                    }
+                  >
+                    <div className="flex items-center gap-3">
+                      <Icon size={18} />
+                      <span>{item.label}</span>
+                    </div>
+                    {isLookbook && savedPalettes.length > 0 && (
+                      <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-[#252525] text-[#FFD84D]">
+                        {savedPalettes.length}
+                      </span>
+                    )}
+                    {isWardrobe && wardrobeItems.length > 0 && (
+                      <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-[#FFF4BF] text-[#252525]">
+                        {wardrobeItems.length}
+                      </span>
+                    )}
+                  </NavLink>
+                );
+              })}
+            </div>
+
+            <div className="pt-3 border-t border-[#EAE7DD]">
+              <Link
+                to="/color-matcher"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 bg-[#FFD84D] text-[#252525] font-bold py-3 px-4 rounded-xl shadow-xs"
+              >
+                <Palette size={18} />
+                <span>Instant Dress Matcher</span>
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </header>

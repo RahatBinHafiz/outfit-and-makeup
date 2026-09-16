@@ -6,6 +6,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
+import MobileNav from '@/components/layout/MobileNav';
 import Footer from '@/components/layout/Footer';
 import Home from '@/pages/Home';
 import ColorMatcher from '@/pages/ColorMatcher';
@@ -38,7 +39,7 @@ export default function App() {
             <ScrollToTop />
             <div className="min-h-screen flex flex-col bg-white text-[#252525] selection:bg-[#FFD84D] selection:text-[#252525]">
               <Navbar />
-              <main className="flex-1">
+              <main className="flex-1 pb-20 md:pb-0">
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/color-matcher" element={<ColorMatcher />} />
@@ -52,6 +53,7 @@ export default function App() {
                 </Routes>
               </main>
               <Footer />
+              <MobileNav />
             </div>
           </BrowserRouter>
         </PaletteProvider>

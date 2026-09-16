@@ -73,7 +73,7 @@ export default function StyleProfile() {
             value={profile.name || ''}
             onChange={(e) => updateProfile({ name: e.target.value })}
             placeholder="e.g. Sophia, Fashion Enthusiast"
-            className="w-full max-w-md px-4 py-2.5 bg-[#FFFDF5] border border-[#EAE7DD] rounded-xl text-sm font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
+            className="w-full max-w-md px-4 py-2.5 min-h-[44px] bg-[#FFFDF5] border border-[#EAE7DD] rounded-xl text-base sm:text-sm font-semibold text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
           />
         </div>
 
@@ -95,7 +95,7 @@ export default function StyleProfile() {
               <button
                 key={u.id}
                 onClick={() => updateProfile({ defaultUndertone: u.id as UndertoneOption })}
-                className={`p-3.5 rounded-2xl border text-left transition-all ${
+                className={`p-3.5 rounded-2xl border text-left transition-all touch-manipulation active:scale-[0.98] ${
                   profile.defaultUndertone === u.id
                     ? 'bg-[#FFF9E6] border-[#FFD84D] shadow-xs'
                     : 'bg-[#FFFDF5] border-[#EAE7DD] hover:bg-white'
@@ -122,7 +122,7 @@ export default function StyleProfile() {
               <button
                 key={m.id}
                 onClick={() => updateProfile({ preferredIntensity: m.id as MakeupIntensity })}
-                className={`p-4 rounded-2xl border text-left transition-all ${
+                className={`p-4 rounded-2xl border text-left transition-all touch-manipulation active:scale-[0.98] ${
                   profile.preferredIntensity === m.id
                     ? 'bg-[#FFF4BF] border-[#FFD84D] shadow-xs'
                     : 'bg-[#FFFDF5] border-[#EAE7DD] hover:bg-white'
@@ -137,7 +137,7 @@ export default function StyleProfile() {
 
         {/* Modest Fashion Toggle */}
         <div className="pt-6 border-t border-[#EAE7DD]">
-          <label className="flex items-start gap-3 p-4 bg-[#FFFDF5] border border-[#EAE7DD] rounded-2xl cursor-pointer hover:bg-[#FFF9E6] transition-colors">
+          <label className="flex items-start gap-3 p-4 bg-[#FFFDF5] border border-[#EAE7DD] rounded-2xl cursor-pointer hover:bg-[#FFF9E6] active:scale-[0.99] transition-all">
             <input
               type="checkbox"
               checked={profile.modestFashion}
@@ -168,7 +168,7 @@ export default function StyleProfile() {
                 <button
                   key={style}
                   onClick={() => toggleFavoriteStyle(style)}
-                  className={`text-xs px-3.5 py-1.5 rounded-full font-semibold transition-colors ${
+                  className={`text-xs px-3.5 py-2 sm:py-1.5 min-h-[38px] sm:min-h-0 rounded-full font-semibold transition-colors touch-manipulation active:scale-95 ${
                     isSelected
                       ? 'bg-[#252525] text-[#FFD84D]'
                       : 'bg-[#FFFDF5] border border-[#EAE7DD] text-[#737373] hover:text-[#252525] hover:bg-white'
@@ -190,14 +190,14 @@ export default function StyleProfile() {
           <p className="text-xs text-[#737373]">
             Select colors you love wearing. StyleSync uses these to prioritize quick-pick shortcuts:
           </p>
-          <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-12 gap-2.5 pt-1">
+          <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-12 gap-2 sm:gap-2.5 pt-1">
             {dressColors.map((c) => {
               const isSelected = profile.preferredColors.includes(c.hex.toUpperCase());
               return (
                 <button
                   key={c.id}
                   onClick={() => togglePreferredColor(c.hex.toUpperCase())}
-                  className={`flex flex-col items-center p-1.5 rounded-xl border transition-all ${
+                  className={`flex flex-col items-center p-2 rounded-xl border transition-all touch-manipulation active:scale-95 min-h-[50px] ${
                     isSelected
                       ? 'bg-[#FFF9E6] border-[#FFD84D] scale-105 shadow-xs'
                       : 'border-transparent hover:border-[#EAE7DD]'

@@ -157,12 +157,12 @@ export default function DressColorSelector({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search dress colors (e.g. burgundy, navy, blush, emerald)..."
-            className="w-full pl-11 pr-4 py-3 bg-white border border-[#EAE7DD] rounded-full text-sm text-[#252525] placeholder:text-[#737373] focus:outline-none focus:ring-2 focus:ring-[#FFD84D] focus:border-[#FFD84D]"
+            className="w-full pl-11 pr-4 py-3 bg-white border border-[#EAE7DD] rounded-full text-base sm:text-sm text-[#252525] placeholder:text-[#737373] focus:outline-none focus:ring-2 focus:ring-[#FFD84D] focus:border-[#FFD84D]"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#737373] hover:text-[#252525]"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#737373] hover:text-[#252525] p-1"
             >
               <X size={16} />
             </button>
@@ -187,7 +187,7 @@ export default function DressColorSelector({
                 if (e.key === 'Enter') handleAddCustomHex();
               }}
               placeholder="Custom HEX"
-              className="w-full pl-8 pr-3 py-3 bg-white border border-[#EAE7DD] rounded-full text-sm font-mono text-[#252525] uppercase placeholder:normal-case placeholder:font-sans placeholder:text-[#737373] focus:outline-none focus:ring-2 focus:ring-[#FFD84D] focus:border-[#FFD84D]"
+              className="w-full pl-8 pr-3 py-3 bg-white border border-[#EAE7DD] rounded-full text-base sm:text-sm font-mono text-[#252525] uppercase placeholder:normal-case placeholder:font-sans placeholder:text-[#737373] focus:outline-none focus:ring-2 focus:ring-[#FFD84D] focus:border-[#FFD84D]"
             />
           </div>
           <Button
@@ -196,6 +196,7 @@ export default function DressColorSelector({
             size="md"
             onClick={handleAddCustomHex}
             icon={<Plus size={16} />}
+            className="shrink-0 min-h-[44px]"
           >
             Add
           </Button>
@@ -205,7 +206,7 @@ export default function DressColorSelector({
         <div className="md:col-span-2">
           <label
             htmlFor="dress-native-color-picker"
-            className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-white hover:bg-[#FFF9E6] border border-[#EAE7DD] hover:border-[#FFD84D] rounded-full text-sm font-semibold text-[#252525] cursor-pointer transition-colors shadow-xs"
+            className="flex items-center justify-center gap-2 w-full py-3 px-4 min-h-[44px] bg-white hover:bg-[#FFF9E6] border border-[#EAE7DD] hover:border-[#FFD84D] rounded-full text-sm font-semibold text-[#252525] cursor-pointer transition-colors shadow-xs active:scale-95"
             title="Pick any custom color"
           >
             <Pipette size={16} className="text-[#FFD84D]" />
@@ -228,7 +229,7 @@ export default function DressColorSelector({
       )}
 
       {/* Color Family Filter Chips */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+      <div className="-mx-1 px-1 sm:mx-0 sm:px-0 flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none touch-pan-x">
         <span className="text-xs font-bold text-[#737373] shrink-0 mr-1 uppercase tracking-wider">
           Filter:
         </span>
@@ -236,7 +237,7 @@ export default function DressColorSelector({
           <button
             key={fam}
             onClick={() => setSelectedFamily(fam)}
-            className={`text-xs px-3 py-1.5 rounded-full font-semibold transition-colors shrink-0 ${
+            className={`text-xs px-3 py-2 sm:py-1.5 min-h-[36px] sm:min-h-0 rounded-full font-semibold transition-colors shrink-0 ${
               selectedFamily === fam
                 ? 'bg-[#252525] text-[#FFD84D]'
                 : 'bg-white border border-[#EAE7DD] text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6]'
@@ -248,14 +249,14 @@ export default function DressColorSelector({
       </div>
 
       {/* Visual Palette Grid */}
-      <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-3 pt-1">
+      <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-2.5 sm:gap-3 pt-1">
         {filteredPresetColors.map((color) => {
           const isSelected = selectedHexes.includes(color.hex.toUpperCase());
           return (
             <button
               key={color.id}
               onClick={() => handleToggleColor(color.hex)}
-              className={`group flex flex-col items-center p-2 rounded-2xl transition-all duration-150 cursor-pointer ${
+              className={`group flex flex-col items-center p-2 rounded-2xl transition-all duration-150 cursor-pointer touch-manipulation active:scale-95 ${
                 isSelected
                   ? 'bg-[#FFF9E6] border-2 border-[#FFD84D] shadow-xs scale-105'
                   : 'hover:bg-[#FFFDF5] border border-transparent hover:border-[#EAE7DD]'

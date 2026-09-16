@@ -155,7 +155,7 @@ export default function CreateMyLook() {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#EAE7DD] rounded-xl text-xs font-semibold text-[#252525] focus:ring-2 focus:ring-[#FFD84D]"
+              className="w-full px-3.5 py-2.5 min-h-[44px] bg-white border border-[#EAE7DD] rounded-xl text-sm sm:text-xs font-semibold text-[#252525] focus:ring-2 focus:ring-[#FFD84D]"
             >
               {CLOTHING_CATEGORIES.map((c) => (
                 <option key={c} value={c}>
@@ -171,7 +171,7 @@ export default function CreateMyLook() {
             <select
               value={occasion}
               onChange={(e) => setOccasion(e.target.value as Occasion)}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#EAE7DD] rounded-xl text-xs font-semibold text-[#252525] focus:ring-2 focus:ring-[#FFD84D]"
+              className="w-full px-3.5 py-2.5 min-h-[44px] bg-white border border-[#EAE7DD] rounded-xl text-sm sm:text-xs font-semibold text-[#252525] focus:ring-2 focus:ring-[#FFD84D]"
             >
               {OCCASIONS.map((o) => (
                 <option key={o.value} value={o.value}>
@@ -189,7 +189,7 @@ export default function CreateMyLook() {
             <select
               value={undertone}
               onChange={(e) => setUndertone(e.target.value as UndertoneOption)}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#EAE7DD] rounded-xl text-xs font-semibold text-[#252525] focus:ring-2 focus:ring-[#FFD84D]"
+              className="w-full px-3.5 py-2.5 min-h-[44px] bg-white border border-[#EAE7DD] rounded-xl text-sm sm:text-xs font-semibold text-[#252525] focus:ring-2 focus:ring-[#FFD84D]"
             >
               <option value="unspecified">No Preference</option>
               <option value="warm">Warm / Golden</option>
@@ -200,7 +200,7 @@ export default function CreateMyLook() {
 
           {/* Modest Fashion Option */}
           <div className="flex flex-col justify-end">
-            <label className="flex items-center gap-2 cursor-pointer p-2.5 bg-[#FFFDF5] border border-[#EAE7DD] rounded-xl hover:bg-[#FFF9E6]">
+            <label className="flex items-center gap-2.5 cursor-pointer p-3 min-h-[44px] bg-[#FFFDF5] border border-[#EAE7DD] rounded-xl hover:bg-[#FFF9E6] active:scale-[0.99] transition-transform">
               <input
                 type="checkbox"
                 checked={modestOption}
@@ -217,12 +217,12 @@ export default function CreateMyLook() {
 
       {/* 3 Styling Variations Segmented Control */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#737373] block">
               Styling Variations
             </span>
-            <h2 className="font-display text-2xl font-bold text-[#252525]">
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-[#252525]">
               Choose Your Styling Aesthetic
             </h2>
           </div>
@@ -232,17 +232,18 @@ export default function CreateMyLook() {
             size="sm"
             onClick={handleSaveCurrentLook}
             icon={<Heart size={14} />}
+            className="w-full sm:w-auto min-h-[44px] justify-center"
           >
             {savedNotification ? 'Saved to Lookbook!' : 'Save This Complete Look'}
           </Button>
         </div>
 
         {/* The 3 variation cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
           {/* Option 1: Minimal and elegant */}
           <div
             onClick={() => setActiveAesthetic('soft')}
-            className={`p-5 rounded-2xl border-2 transition-all cursor-pointer ${
+            className={`p-4 sm:p-5 rounded-2xl border-2 transition-all cursor-pointer touch-manipulation active:scale-[0.98] ${
               activeAesthetic === 'soft'
                 ? 'bg-[#FFF9E6] border-[#FFD84D] shadow-sm'
                 : 'bg-white border-[#EAE7DD] hover:border-[#FFD84D]/50'
@@ -264,7 +265,7 @@ export default function CreateMyLook() {
           {/* Option 2: Classic and balanced */}
           <div
             onClick={() => setActiveAesthetic('elegant')}
-            className={`p-5 rounded-2xl border-2 transition-all cursor-pointer ${
+            className={`p-4 sm:p-5 rounded-2xl border-2 transition-all cursor-pointer touch-manipulation active:scale-[0.98] ${
               activeAesthetic === 'elegant'
                 ? 'bg-[#FFF4BF] border-[#FFD84D] shadow-sm'
                 : 'bg-white border-[#EAE7DD] hover:border-[#FFD84D]/50'
@@ -286,7 +287,7 @@ export default function CreateMyLook() {
           {/* Option 3: Bold and glamorous */}
           <div
             onClick={() => setActiveAesthetic('bold')}
-            className={`p-5 rounded-2xl border-2 transition-all cursor-pointer ${
+            className={`p-4 sm:p-5 rounded-2xl border-2 transition-all cursor-pointer touch-manipulation active:scale-[0.98] ${
               activeAesthetic === 'bold'
                 ? 'bg-[#FFD84D]/25 border-[#FFD84D] shadow-sm'
                 : 'bg-white border-[#EAE7DD] hover:border-[#FFD84D]/50'

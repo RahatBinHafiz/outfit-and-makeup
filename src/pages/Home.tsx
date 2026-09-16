@@ -67,24 +67,25 @@ export default function Home() {
               </p>
 
               {/* Primary Call to Actions */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Link to="/create-my-look">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+                <Link to="/create-my-look" className="w-full sm:w-auto">
                   <Button
                     id="hero-find-perfect-look-btn"
                     size="lg"
                     icon={<Wand2 size={18} />}
-                    className="shadow-md"
+                    className="shadow-md w-full justify-center min-h-[48px]"
                   >
                     Find My Perfect Look
                   </Button>
                 </Link>
 
-                <Link to="/color-matcher">
+                <Link to="/color-matcher" className="w-full sm:w-auto">
                   <Button
                     id="hero-open-matcher-btn"
                     variant="outline"
                     size="lg"
                     icon={<Palette size={18} />}
+                    className="w-full justify-center min-h-[48px]"
                   >
                     Open Color Matcher Studio
                   </Button>

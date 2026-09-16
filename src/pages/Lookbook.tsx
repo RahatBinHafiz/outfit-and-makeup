@@ -102,8 +102,8 @@ export default function Lookbook() {
           </p>
         </div>
 
-        <Link to="/color-matcher">
-          <Button variant="primary" size="md" icon={<Palette size={16} />}>
+        <Link to="/color-matcher" className="w-full sm:w-auto">
+          <Button variant="primary" size="md" icon={<Palette size={16} />} className="w-full sm:w-auto min-h-[44px] justify-center">
             Match a New Dress
           </Button>
         </Link>
@@ -121,12 +121,12 @@ export default function Lookbook() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search saved looks by title or outfit..."
-            className="w-full pl-11 pr-4 py-2.5 bg-[#FFFDF5] border border-[#EAE7DD] rounded-full text-sm text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
+            className="w-full pl-11 pr-4 py-2.5 min-h-[44px] bg-[#FFFDF5] border border-[#EAE7DD] rounded-full text-base sm:text-sm text-[#252525] focus:outline-none focus:ring-2 focus:ring-[#FFD84D]"
           />
         </div>
 
         {allTags.length > 1 && (
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-1">
+          <div className="-mx-1 px-1 sm:mx-0 sm:px-0 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-1 touch-pan-x">
             <span className="text-xs font-bold text-[#737373] uppercase tracking-wider shrink-0 mr-1">
               Filter Tags:
             </span>
@@ -134,7 +134,7 @@ export default function Lookbook() {
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`text-xs px-3.5 py-1.5 rounded-full font-semibold transition-colors shrink-0 capitalize ${
+                className={`text-xs px-3.5 py-2 sm:py-1.5 min-h-[36px] sm:min-h-0 rounded-full font-semibold transition-colors shrink-0 capitalize touch-manipulation active:scale-95 ${
                   selectedTag === tag
                     ? 'bg-[#252525] text-[#FFD84D]'
                     : 'bg-white border border-[#EAE7DD] text-[#737373] hover:text-[#252525] hover:bg-[#FFF9E6]'
