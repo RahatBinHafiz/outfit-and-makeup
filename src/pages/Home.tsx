@@ -61,7 +61,7 @@ export default function Home() {
               </h1>
 
               <p className="text-[#737373] text-base sm:text-lg leading-relaxed max-w-2xl">
-                StyleSync answers your biggest styling questions in seconds. Discover which lipstick,
+                Suhana's Glamour answers your biggest styling questions in seconds. Discover which lipstick,
                 eyeshadow palette, and blush complement your outfit, plus curated shoes, bags, and
                 jewelry for every event.
               </p>

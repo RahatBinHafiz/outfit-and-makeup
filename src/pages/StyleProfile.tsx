@@ -50,7 +50,7 @@ export default function StyleProfile() {
         </h1>
         <p className="text-[#737373] text-sm sm:text-base leading-relaxed">
           Configure your style persona, favorite clothing palettes, makeup intensity, and modesty
-          options. All StyleSync generators calibrate to your settings.
+          options. All Suhana's Glamour generators calibrate to your settings.
         </p>
       </div>
 
@@ -188,7 +188,7 @@ export default function StyleProfile() {
             Preferred Clothing Colors
           </span>
           <p className="text-xs text-[#737373]">
-            Select colors you love wearing. StyleSync uses these to prioritize quick-pick shortcuts:
+            Select colors you love wearing. Suhana's Glamour uses these to prioritize quick-pick shortcuts:
           </p>
           <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-12 gap-2 sm:gap-2.5 pt-1">
             {dressColors.map((c) => {

@@ -38,14 +38,14 @@ export default function Navbar() {
         <Link
           to="/"
           className="flex items-center gap-2.5 group focus:outline-none"
-          aria-label="StyleSync Home"
+          aria-label="Suhana's Glamour Home"
         >
           <div className="w-10 h-10 rounded-2xl bg-[#FFD84D] flex items-center justify-center shadow-sm border border-[#F5CD3D] transition-transform group-hover:scale-105">
             <Sparkles size={20} className="text-[#252525]" />
           </div>
           <div>
             <span className="font-display text-2xl font-bold tracking-tight text-[#252525] block leading-none">
-              StyleSync
+              Suhana's Glamour
             </span>
             <span className="text-[10px] uppercase font-bold tracking-widest text-[#737373] block mt-0.5">
               Fashion & Makeup Stylist

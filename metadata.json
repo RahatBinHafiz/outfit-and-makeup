@@ -1,5 +1,5 @@
 {
-  "name": "StyleSync — AI Fashion & Makeup Stylist",
+  "name": "Suhana's Glamour",
   "description": "AI-powered personal styling and beauty assistant featuring interactive dress-to-makeup color matching, complete look generation, wardrobe outfit builder, and lookbook.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

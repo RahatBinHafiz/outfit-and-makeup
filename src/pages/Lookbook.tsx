@@ -64,7 +64,7 @@ export default function Lookbook() {
   };
 
   const handleShareLook = async (p: typeof savedPalettes[0]) => {
-    const text = `Check out my StyleSync look: ${p.name} (${p.dressHexes.join(
+    const text = `Check out my Suhana's Glamour look: ${p.name} (${p.dressHexes.join(
       ', '
     )}) with ${p.combination.lipstick.name} lipstick!`;
     try {

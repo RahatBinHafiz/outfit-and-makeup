@@ -13,7 +13,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-xl bg-[#FFD84D] flex items-center justify-center border border-[#F5CD3D]">
                 <Sparkles size={16} className="text-[#252525]" />
               </div>
-              <span className="font-display text-2xl font-bold text-[#252525]">StyleSync</span>
+              <span className="font-display text-2xl font-bold text-[#252525]">Suhana's Glamour</span>
             </div>
             <p className="text-sm text-[#737373] leading-relaxed max-w-md">
               Your AI fashion stylist and beauty consultant. Empowering you to coordinate dress colors,
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[#EAE7DD] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#737373]">
-          <p>© {new Date().getFullYear()} StyleSync. Designed with bright white and yellow elegance.</p>
+          <p>© {new Date().getFullYear()} Suhana's Glamour. Designed with bright white and yellow elegance.</p>
           <div className="flex items-center gap-1.5 text-xs text-[#737373]">
             <span>Crafted for effortless beauty & confidence</span>
             <Heart size={12} className="text-[#FFD84D] fill-[#FFD84D]" />
